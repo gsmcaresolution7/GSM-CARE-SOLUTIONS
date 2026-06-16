@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tcltvrepairing.github.io/GSM-CARE-SOLUTIONS/sitemap.xml
+Sitemap: https://www.gsmcaresolution.in/sitemap.xml
