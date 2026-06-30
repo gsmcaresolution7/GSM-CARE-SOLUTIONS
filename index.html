@@ -1816,8 +1816,51 @@
       color: var(--gold);
       font-size: 12.5px;
       font-weight: 800;
-      display: inline-block;
-      margin-top: 10px;
+      display: inline-flex;
+      align-items: center;
+      white-space: nowrap;
+    }
+
+    .dc-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .dc-mini-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      min-height: 32px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1;
+      text-decoration: none;
+      border: 1px solid rgba(201, 168, 76, 0.40);
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 10px rgba(11, 30, 61, 0.06);
+    }
+
+    .dc-mini-btn.call {
+      background: var(--navy);
+      color: var(--white);
+      border-color: var(--navy);
+    }
+
+    .dc-mini-btn.wa {
+      background: #25D366;
+      color: var(--white);
+      border-color: #25D366;
+    }
+
+    .dc-mini-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-gold);
     }
 
     .directory-note {
@@ -2226,41 +2269,33 @@
       </section>
 
 
-      <!-- BRANDS WE REPAIR -->
-      <section class="section section-gold">
+
+
+
+      <!-- A TO Z STYLE TV REPAIR DIRECTORY ON HOME -->
+      <section class="section section-alt" id="home-atoz-directory">
         <div class="section-inner">
           <div class="section-header center">
-            <div class="section-label">All Major Brands</div>
-            <h2 class="section-title">We Repair Every TV Brand</h2>
+            <div class="section-label">A to Z TV Repair Pages</div>
+            <h2 class="section-title">Brand, Size & Location Wise TV Repair Service</h2>
+            <p class="section-sub">Select any TV brand, inch size, common problem or location. Each option opens a full service information page with Call Now, WhatsApp and booking form.</p>
           </div>
-          <div class="brands-row">
-            <div class="brand-pill">Samsung</div>
-            <div class="brand-pill">Akai</div>
-            <div class="brand-pill">BPL</div>
-            <div class="brand-pill">Croma</div>
-            <div class="brand-pill">Haier</div>
-            <div class="brand-pill">Hitachi</div>
-            <div class="brand-pill">Hisense</div>
-            <div class="brand-pill">Intex</div>
-            <div class="brand-pill">Kodak</div>
-            <div class="brand-pill">LG</div>
-            <div class="brand-pill">Lloyd</div>
-            <div class="brand-pill">Mi</div>
-            <div class="brand-pill">Micromax</div>
-            <div class="brand-pill">Mitashi</div>
-            <div class="brand-pill">Nokia</div>
-            <div class="brand-pill">OnePlus</div>
-            <div class="brand-pill">Panasonic</div>
-            <div class="brand-pill">Philips</div>
-            <div class="brand-pill">Android TV</div>
-            <div class="brand-pill">Sony</div>
-            <div class="brand-pill">Realme</div>
-            <div class="brand-pill">Redmi</div>
+          <div class="directory-tools">
+            <input type="text" id="homeDirectorySearch" placeholder="🔍 Search brand, location, inch or problem..." oninput="renderHomeDirectory()">
+            <select id="homeDirectoryType" onchange="renderHomeDirectory()">
+              <option value="popular">TV Brands</option>
+              <option value="brand">TV Brands</option>
+              <option value="location">Locations</option>
+              <option value="size">TV Inches</option>
+              <option value="issue">TV Problems</option>
+            </select>
+          </div>
+          <div class="directory-grid compact" id="homeDirectoryGrid"></div>
+          <div class="directory-note">
+            <b>Note:</b> GSM Care Solutions provides independent multi-brand TV repair service. We repair TVs of all major brands, but we are not claiming to be an official or authorised brand service center unless specifically mentioned by the brand.
           </div>
         </div>
       </section>
-
-
 
       <!-- SERVICES OVERVIEW -->
       <section class="section">
@@ -2452,32 +2487,6 @@
       </div>
 
 
-      <!-- A TO Z STYLE TV REPAIR DIRECTORY ON HOME - ABOVE TESTIMONIALS -->
-      <section class="section section-alt" id="home-atoz-directory">
-        <div class="section-inner">
-          <div class="section-header center">
-            <div class="section-label">A to Z TV Repair Pages</div>
-            <h2 class="section-title">Brand, Size & Location Wise TV Repair Service</h2>
-            <p class="section-sub">Select any TV brand, inch size, common problem or location. Each option opens a full service information page with Call Now, WhatsApp and booking form.</p>
-          </div>
-          <div class="directory-tools">
-            <input type="text" id="homeDirectorySearch" placeholder="🔍 Search brand, location, inch or problem..." oninput="renderHomeDirectory()">
-            <select id="homeDirectoryType" onchange="renderHomeDirectory()">
-              <option value="popular">TV Brands</option>
-              <option value="brand">TV Brands</option>
-              <option value="location">Locations</option>
-              <option value="size">TV Inches</option>
-              <option value="issue">TV Problems</option>
-            </select>
-          </div>
-          <div class="directory-grid compact" id="homeDirectoryGrid"></div>
-          <div class="directory-note">
-            <b>Note:</b> GSM Care Solutions provides independent multi-brand TV repair service. We repair TVs of all major brands, but we are not claiming to be an official or authorised brand service center unless specifically mentioned by the brand.
-          </div>
-        </div>
-      </section>
-
-
       <!-- TESTIMONIALS -->
       <section class="section">
         <div class="section-inner">
@@ -2551,6 +2560,41 @@
           </div>
         </div>
       </section>
+
+      <!-- BRANDS WE REPAIR -->
+      <section class="section section-gold">
+        <div class="section-inner">
+          <div class="section-header center">
+            <div class="section-label">All Major Brands</div>
+            <h2 class="section-title">We Repair Every TV Brand</h2>
+          </div>
+          <div class="brands-row">
+            <div class="brand-pill">Samsung</div>
+            <div class="brand-pill">Akai</div>
+            <div class="brand-pill">BPL</div>
+            <div class="brand-pill">Croma</div>
+            <div class="brand-pill">Haier</div>
+            <div class="brand-pill">Hitachi</div>
+            <div class="brand-pill">Hisense</div>
+            <div class="brand-pill">Intex</div>
+            <div class="brand-pill">Kodak</div>
+            <div class="brand-pill">LG</div>
+            <div class="brand-pill">Lloyd</div>
+            <div class="brand-pill">Mi</div>
+            <div class="brand-pill">Micromax</div>
+            <div class="brand-pill">Mitashi</div>
+            <div class="brand-pill">Nokia</div>
+            <div class="brand-pill">OnePlus</div>
+            <div class="brand-pill">Panasonic</div>
+            <div class="brand-pill">Philips</div>
+            <div class="brand-pill">Android TV</div>
+            <div class="brand-pill">Sony</div>
+            <div class="brand-pill">Realme</div>
+            <div class="brand-pill">Redmi</div>
+          </div>
+        </div>
+      </section>
+
 
       <!-- FAQ STRIP -->
       <section class="section">
@@ -3235,8 +3279,8 @@
       <div class="footer-brand">
         <div class="logo">
           <img
-src="logo.png"            
-alt="GSM Care Solutions Logo" style="height:48px;width:auto;object-fit:contain;border-radius:8px;">
+            src="logo.png"
+            alt="GSM Care Solutions Logo" style="height:48px;width:auto;object-fit:contain;border-radius:8px;">
           <div class="logo-text">
             <div class="tagline" style="font-size:11px;color:var(--gold-light);letter-spacing:1.5px;">Expert TV Repair ·
               Noida</div>
@@ -3381,12 +3425,17 @@ alt="GSM Care Solutions Logo" style="height:48px;width:auto;object-fit:contain;b
       const safeLabel = escHTML(item.label);
       const safeType = escInline(item.type);
       const safeValue = escInline(item.value);
+      const waText = encodeURIComponent(`Hello GSM Care Solutions, I need ${item.title}. Please contact me.`);
       return `
         <div class="directory-card" onclick="openServiceDetail('${safeType}','${safeValue}')" title="Open ${safeTitle}">
           <div class="dc-label">📺 ${safeLabel}</div>
           <h3>${safeTitle}</h3>
           <p>${safeDesc}</p>
-          <span class="dc-arrow">View Details →</span>
+          <div class="dc-actions">
+            <span class="dc-arrow">View Details →</span>
+            <a class="dc-mini-btn call" href="tel:+919625500638" onclick="event.stopPropagation();" aria-label="Call for ${safeTitle}">📞 Call</a>
+            <a class="dc-mini-btn wa" href="https://wa.me/919625500638?text=${waText}" onclick="event.stopPropagation();" target="_blank" rel="noopener" aria-label="WhatsApp for ${safeTitle}">WhatsApp</a>
+          </div>
         </div>`;
     }
 
