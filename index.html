@@ -3364,7 +3364,7 @@
     // ─── A TO Z TV SERVICE DATA ───
     const tvBrands = ["Samsung", "Akai", "BPL", "Croma", "Haier", "Hitachi", "Hisense", "Intex", "Kodak", "LG", "Lloyd", "Mi", "Micromax", "Mitashi", "Nokia", "OnePlus", "Panasonic", "Philips", "Android TV", "Sony", "Realme", "Redmi"];
     const serviceCities = ["Delhi", "Noida", "Faridabad", "Gurgaon", "Ghaziabad"];
-    const serviceLocations = ["Delhi", "Noida", "Faridabad", "Gurgaon", "Ghaziabad", "Mayur Vihar Phase 3", "GD Colony", "Ghaziabad", "Noida Sector 14", "Noida Sector 14A", "Noida Sector 15", "Noida Sector 15A", "Noida Sector 16A", "Noida Sector 17", "Noida Sector 18", "Noida Sector 19", "Noida Sector 20", "Noida Sector 21", "Noida Sector 22", "Noida Sector 23", "Noida Sector 24", "Noida Sector 25", "Noida Sector 26", "Noida Sector 27", "Noida Sector 28", "Noida Sector 29", "Noida Sector 30", "Noida Sector 31", "Noida Sector 32", "Noida Sector 33", "Noida Sector 34", "Noida Sector 35", "Noida Sector 36", "Noida Sector 37", "Noida Sector 39", "Noida Sector 41", "Noida Sector 43", "Noida Sector 44", "Noida Sector 45", "Noida Sector 46", "Noida Sector 47", "Noida Sector 50", "Noida Sector 51", "Noida Sector 52", "Noida Sector 53", "Noida Sector 54", "Noida Sector 55", "Noida Sector 56", "Noida Sector 61", "Noida Sector 62", "Noida Sector 75", "Noida Sector 76", "Noida Sector 77", "Noida Sector 78", "Noida Sector 79", "Noida Sector 93A", "Noida Sector 104", "Noida Sector 128", "Noida Sector 137", "Noida Sector 143", "Noida Sector 150"];
+    const serviceLocations = ["faridabad", "gurgaon", "Ghaziabad", "Delhi", "Noida"];
     const tvSizes = ["24", "28", "32", "39", "40", "42", "43", "48", "49", "50", "55", "58", "60", "65", "70", "75", "80", "82", "85", "86", "98", "100"];
     const tvIssues = ["LED TV Repair", "LCD TV Repair", "OLED TV Repair", "QLED TV Repair", "Smart TV Repair", "Android TV Repair", "Display Lines Repair", "Black Screen Repair", "Backlight Repair", "Motherboard Repair", "Power Board Repair", "Sound Repair", "HDMI Port Repair", "Remote Sensor Repair", "Panel Replacement", "Software Update"];
 
@@ -3450,7 +3450,7 @@
         // Location, inch-size and problem pages are still available from the dropdown/search.
         items = items.filter(i => i.type === 'brand' && tvBrands.includes(i.value));
       } else {
-        items = items.filter(i => i.type === type || (type === 'location' && i.type === 'city'));
+        items = items.filter(i => type === 'location' ? i.type === 'city' : i.type === type);
       }
       if (q) items = items.filter(i => (i.title + ' ' + i.desc).toLowerCase().includes(q));
       grid.innerHTML = items.slice(0, 100).map(cardHTML).join('');
